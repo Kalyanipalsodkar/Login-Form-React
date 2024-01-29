@@ -1,15 +1,12 @@
 import React, { useState } from "react";
 import './Login.css';
-import { FaLock } from "react-icons/fa";
-import { FaEnvelope } from "react-icons/fa";
-import { FaUser } from "react-icons/fa";
-import { act } from "react-dom/test-utils";
-
+import { FaLock , FaEnvelope , FaUser} from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
-
+  const navigate = useNavigate();
   const [action, setAction]= useState("Login");
-
+  
   return (
     <div className="container">
         <div className="header">
@@ -36,8 +33,8 @@ function Login() {
         {action==="Sign Up"?<div></div>: <div className="forgot-password"> Forgot Password? <span>Click Here!</span></div>}
 
         <div className="buttons">
-        <button className={action==="Login"?"submit gray":"submit"} onClick={()=>{setAction("Sign Up")}}> Sign Up</button>
-        <button className={action==="Sign Up"?"submit gray":"submit"} onClick={()=>{setAction("Login")}}> Log In</button>
+        <button className={action==="Sign Up"?"submit gray":"submit"} onClick={()=>{navigate("/Todoform")}}> Log In</button>
+        <button className={action==="Login"?"submit gray":"submit"} onClick={()=> {setAction("SignUp")}}> Sign Up</button>
         </div>
 
     </div>
